@@ -1,0 +1,19 @@
+apiVersion: deploy.cloud.google.com/v1beta1
+kind: DeliveryPipeline
+metadata:
+  name: devops-toolkit
+description: Silly application pipeline
+serialPipeline:
+  stages:
+  - targetId: prod
+    profiles: []
+
+---
+
+apiVersion: deploy.cloud.google.com/v1beta1
+kind: Target
+metadata:
+  name: prod
+description: production cluster
+gke:
+  cluster: projects/doc-rxp1xxxy40n2egb2/locations/us-central1/clusters/devops-catalog
